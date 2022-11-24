@@ -96,6 +96,10 @@ class LinkedList {
     }
     return string + " -> null";
   }
+
+  insertAt(value, index) {}
+
+  removeAt(index) {}
 }
 
 class Node {
@@ -105,13 +109,16 @@ class Node {
   }
 }
 
-const startNode = new Node("first", null);
+const startNode = new Node("2", null);
 const list = new LinkedList(startNode);
 
-const anotherNode = new Node("another", null);
+const anotherNode = new Node("3", null);
 list.append(anotherNode);
 
-const prependNode = new Node("prepend", null);
+const node4 = new Node("4", null);
+list.append(node4);
+
+const prependNode = new Node("1", null);
 list.prepend(prependNode);
 
 console.log(list, list.toString());
