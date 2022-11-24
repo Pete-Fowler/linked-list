@@ -46,6 +46,19 @@ class LinkedList {
     }
     return temp;
   }
+
+  pop() {
+    let temp = this.head;
+    let newLast;
+    while (temp.next !== null) {
+      if (temp.next.next === null) {
+        newLast = temp;
+      }
+      temp = temp.next;
+    }
+    newLast.next = null;
+    return temp;
+  }
 }
 
 class Node {
@@ -64,4 +77,4 @@ list.append(anotherNode);
 const prependNode = new Node("prepend", null);
 list.prepend(prependNode);
 
-console.log(list, list.at(4));
+console.log(list.pop(), list);
