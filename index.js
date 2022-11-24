@@ -3,13 +3,17 @@ class LinkedList {
     this.head = head;
   }
 
-  append(value) {
+  append(node) {
     let temp = this.head;
     while (temp.next !== null) {
       temp = temp.next;
     }
-    console.log(temp);
-    temp.next = value;
+    temp.next = node;
+  }
+
+  prepend(node) {
+    node.next = this.head;
+    this.head = node;
   }
 }
 
@@ -21,11 +25,12 @@ class Node {
 }
 
 const startNode = new Node("first", null);
-
 const list = new LinkedList(startNode);
 
 const anotherNode = new Node("another", null);
-
 list.append(anotherNode);
+
+const prependNode = new Node("prepend", null);
+list.prepend(prependNode);
 
 console.log(list);
