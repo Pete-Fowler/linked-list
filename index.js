@@ -86,6 +86,16 @@ class LinkedList {
     }
     return null;
   }
+
+  toString() {
+    let temp = this.head;
+    let string = `( ${this.head.value} )`;
+    while (temp.next !== null) {
+      temp = temp.next;
+      string += ` -> ( ${temp.value} )`;
+    }
+    return string + " -> null";
+  }
 }
 
 class Node {
@@ -104,4 +114,4 @@ list.append(anotherNode);
 const prependNode = new Node("prepend", null);
 list.prepend(prependNode);
 
-console.log(list, list.find("prepend"));
+console.log(list, list.toString());
