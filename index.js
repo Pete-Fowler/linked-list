@@ -33,6 +33,16 @@ class LinkedList {
     }
     return temp;
   }
+
+  at(index) {
+    let temp = this.head;
+    let i = 0;
+    while (i <= index) {
+      temp = temp.next;
+      i++;
+    }
+    return temp;
+  }
 }
 
 class Node {
@@ -51,4 +61,4 @@ list.append(anotherNode);
 const prependNode = new Node("prepend", null);
 list.prepend(prependNode);
 
-console.log(list, list.tail);
+console.log(list, list.at(0));
