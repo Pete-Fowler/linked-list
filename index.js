@@ -97,7 +97,22 @@ class LinkedList {
     return string + " -> null";
   }
 
-  insertAt(value, index) {}
+  insertAt(node, index) {
+    if (index === 0) {
+      this.prepend(node);
+      return;
+    }
+    let temp = this.head;
+    let i = 0;
+    while (i < index - 1) {
+      temp = temp.next;
+      i++;
+    }
+    const previousNode = temp;
+    const nextNode = temp.next;
+    previousNode.next = node;
+    node.next = nextNode;
+  }
 
   removeAt(index) {}
 }
@@ -121,4 +136,8 @@ list.append(node4);
 const prependNode = new Node("1", null);
 list.prepend(prependNode);
 
-console.log(list, list.toString());
+const node5 = new Node("5", null);
+
+list.insertAt(node5, 1);
+
+console.log(list);
