@@ -114,7 +114,17 @@ class LinkedList {
     node.next = nextNode;
   }
 
-  removeAt(index) {}
+  removeAt(index) {
+    let temp = this.head;
+    let i = 0;
+    while (i < index - 1) {
+      temp = temp.next;
+      i++;
+    }
+    const previousNode = temp;
+    const next = temp.next.next;
+    previousNode.next = next;
+  }
 }
 
 class Node {
@@ -139,5 +149,7 @@ list.prepend(prependNode);
 const node5 = new Node("5", null);
 
 list.insertAt(node5, 1);
+
+list.removeAt(1);
 
 console.log(list);
