@@ -59,6 +59,17 @@ class LinkedList {
     newLast.next = null;
     return temp;
   }
+
+  contains(value) {
+    let temp = this.head;
+    while (temp.next !== null) {
+      if (temp.value === value) {
+        return true;
+      }
+      temp = temp.next;
+    }
+    return false;
+  }
 }
 
 class Node {
@@ -77,4 +88,4 @@ list.append(anotherNode);
 const prependNode = new Node("prepend", null);
 list.prepend(prependNode);
 
-console.log(list.pop(), list);
+console.log(list, list.contains("prepeffnd"));
